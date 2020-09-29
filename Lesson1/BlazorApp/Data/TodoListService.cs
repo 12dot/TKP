@@ -16,6 +16,10 @@ namespace BlazorApp.Data
                 newTodo = string.Empty;
             }
         }
+        public void DeleteTodo(TodoItem todo)
+        {
+            todos.Remove(todo);
+        }
     }
 
 }
