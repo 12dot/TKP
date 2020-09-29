@@ -1,0 +1,20 @@
+@page "/todo"
+@using BlazorApp.Data
+@inject TodoListService TodoList
+
+
+<h3>Todo (@TodoList.todos.Count(todo => !todo.IsDone))</h3>
+
+<ul>
+    @foreach (var todo in TodoList.todos)
+    {
+        <li>
+            <input type="checkbox" @bind="todo.IsDone" />
+            <input @bind="todo.Title" />
+        </li>
+    }
+</ul>
+
+
+<input placeholder="Something todo" @bind="TodoList.newTodo"/>
+<button @onclick="TodoList.AddTodo">Add todo</button>
